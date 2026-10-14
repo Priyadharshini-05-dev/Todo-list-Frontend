@@ -11,7 +11,7 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
 
- private apiUrl = "http://localhost:8081/task";
+ private apiUrl = "http://localhost:8080/task";
 
 getAllTasks() {
   return this.http.get(this.apiUrl + "/getAll");

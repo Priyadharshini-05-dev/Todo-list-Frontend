@@ -1,29 +1,30 @@
-<div class="min-h-screen bg-blue-200 p-10">
-  <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-    <div class="flex justify-between items-center mb-8">
+<div class="min-h-screen bg-blue-200 p-4 sm:p-6 lg:p-10">
+  <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
       <div>
-        <h2 class="!text-5xl !font-extrabold !text-blue-700">Task List</h2>
+        <h2 class="!text-3xl sm:!text-4xl lg:!text-5xl !font-extrabold !text-blue-700">Task List</h2>
 
         <p class="text-gray-500 mt-1">Manage your daily tasks easily</p>
       </div>
 
       <button
-        class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition w-full sm:w-auto text-center"
         routerLink="/task-form"
       >
         Add Task
       </button>
     </div>
+    <div class="overflow-x-auto">
     <table
       mat-table
       [dataSource]="dataSource"
-      class="w-full table-fixed rounded-xl overflow-hidden"
+      class="w-full  min-w-[900px] rounded-xl table-auto"
     >
       <ng-container matColumnDef="completed">
         <th
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-24"
+          class="!text-center text-base bg-blue-100 text-blue-700 py-4 font-bold w-24"
         >
           Done
         </th>
@@ -47,7 +48,7 @@
         <th
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-52"
+          class="!text-center text-base bg-blue-100 text-blue-700 py-4 font-bold w-52"
         >
           Title
         </th>
@@ -67,7 +68,7 @@
         <th
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-72"
+          class="!text-center bg-blue-100 text-base text-blue-700 py-4 font-bold w-72"
         >
           Description
         </th>
@@ -75,7 +76,7 @@
         <td
           mat-cell
           *matCellDef="let task"
-          class="!text-center py-4 border-b w-72"
+          class="!text-center py-4 border-b w-72 whitespace-normal break-words"
           [class.line-through]="task.status === 'Completed'"
           [class.text-gray-500]="task.status === 'Completed'"
         >
@@ -85,9 +86,10 @@
 
       <ng-container matColumnDef="dueDate">
         <th
+        
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-40"
+          class="!text-center bg-blue-100 text-base text-blue-700 py-4 font-bold w-40"
         >
           Due Date
         </th>
@@ -107,7 +109,7 @@
         <th
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-40"
+          class="!text-center text-base bg-blue-100 text-blue-700 py-4 font-bold w-40"
         >
           Status
         </th>
@@ -127,13 +129,13 @@
         <th
           mat-header-cell
           *matHeaderCellDef
-          class="!text-center bg-blue-100 text-blue-700 py-4 font-bold w-80"
+          class="!text-center bg-blue-100 text-base text-blue-700 py-4 font-bold w-80"
         >
           Action
         </th>
 
         <td mat-cell *matCellDef="let task" class="py-4 border-b w-80">
-          <div class="flex justify-center gap-2">
+          <div class="flex flex-wrap justify-center gap-2">
             <button class="bg-yellow-200 px-4 py-2 rounded-md">View</button>
 
             <button
@@ -161,5 +163,6 @@
 
       <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
     </table>
+    </div>
   </div>
 </div>

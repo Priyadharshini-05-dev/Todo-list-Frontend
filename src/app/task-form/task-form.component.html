@@ -1,20 +1,22 @@
-<div class="bg-blue-300 flex justify-center items-center h-screen">
-  <div class="flex flex-col justify-center items-center">
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-50  flex justify-center items-center px-4 py-8">
+  <div class="w-full max-w-md">
 
-    <div class="text-4xl font-extrabold text-white mb-4">
-      <h2 class="!font-extrabold !text-3xl">To-Do List</h2>
+    <div class="w-full mb-6 text-center">
+      <h2 class="font-black text-4xl text-slate-800">
+  To-Do List
+</h2>
     </div>
-    <form [formGroup]="taskForm" (ngSubmit)="saveTask()" class="flex flex-col gap bg-white/20 p-8 rounded-2xl w-96 backdrop:blur-md">
-     <mat-form-field appearance="outline">
+    <form [formGroup]="taskForm" (ngSubmit)="saveTask()" class="flex flex-col gap-4 bg-white/80 p-5 sm:p-8 rounded-2xl w-full shadow-xl shadow-blue-900/10  border border-white/60  backdrop:blur-md">
+     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Task Name</mat-label>
       <input matInput formControlName="taskName">
      </mat-form-field>
-     <mat-form-field appearance="outline">
+     <mat-form-field appearance="outline" class="w-full">
       <mat-label >  Description </mat-label>
        <textarea matInput rows="4" formControlName="description">
    </textarea>
      </mat-form-field>
-     <mat-form-field appearance="outline">
+     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Due Date</mat-label>
       <input   matInput [matDatepicker]="picker"
       formControlName="dueDate">
@@ -22,7 +24,7 @@
       <mat-datepicker #picker></mat-datepicker>
      </mat-form-field>
 
-     <mat-form-field appearance="outline">
+     <mat-form-field appearance="outline" class="w-full">
       <mat-label>
       Status
       </mat-label>
@@ -40,10 +42,11 @@
       </mat-select>
 
      </mat-form-field>
-     <button
-     mat-raised-button
-     color="primary"
+     <button 
+     
+     
      type="submit"
+     class="w-full h-12 rounded-xl text-base font-semibold bg-indigo-700 hover:bg-indigo-800 text-white transition-colors duration-200"
      >{{id?"Update Task" : "Save Task"}}</button>
     </form>
     </div>
